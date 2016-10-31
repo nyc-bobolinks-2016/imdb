@@ -16,7 +16,6 @@ handleDisplaySearch(movies){
 
   render(){
     let movies = this.state.movies
-    // debugger
     return(
       <section>
         <NavBar search_response={this.handleDisplaySearch.bind(this)}/>

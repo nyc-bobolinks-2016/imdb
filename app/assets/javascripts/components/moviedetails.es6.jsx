@@ -1,7 +1,35 @@
 class MovieDetails extends React.Component{
 
+  constructor(){
+    super()
+    this.state = {
+      moviedetails:
+        { Title:"",
+          Year:"",
+          Rated:"",
+          Released:"" ,
+          Director:"",
+          Writer:"",
+          Actors:"",
+          Plot:"" }
+    }
+  }
+
+  componentDidMount(){
+    $.ajax({
+      url: 'imdb/search/details/'+ this.props.Title,
+      method: 'get'
+    }).done((response) => {
+      debugger
+      this.setState({
+        moviedetails : response
+    })
+  })
+}
+
+
   render(){
-    let { Title, Year, Rated, Released, Director, Writer, Actors, Plot } = this.props.moviedetails
+    let { Title, Year, Rated, Released, Director, Writer, Actors, Plot } = this.state.moviedetails
 
     return(
       <div>
